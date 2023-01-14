@@ -46,6 +46,11 @@ namespace NZWalks.API.Repositories
             return await nZWalksDbContext.WalkDifficulties.FirstOrDefaultAsync(x => x.Id == id);
         }
 
+        public async Task<WalkDifficulty> GetByCodeAsync(string code)
+        {
+            return await nZWalksDbContext.WalkDifficulties.FirstOrDefaultAsync(x => x.Code == code);
+        }
+
         public async Task<WalkDifficulty> UpdateAsync(Guid id, WalkDifficulty walkDifficulty)
         {
             var existinWalkDifficuty = await nZWalksDbContext.WalkDifficulties.FindAsync(id);
